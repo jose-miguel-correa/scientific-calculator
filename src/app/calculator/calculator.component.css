@@ -1,0 +1,10 @@
+.card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.btn-group {
+  width: 100%;
+}
+.btn {
+  min-width: 48px;
+}

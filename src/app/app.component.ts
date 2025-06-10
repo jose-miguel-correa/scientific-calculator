@@ -123,7 +123,7 @@ export class AppComponent {
 	}
 
 	calculate():string {
-		if (this.formula.is_operand == true || this.formula.stack.length<2) return;
+		if (this.formula.is_operand == true || this.formula.stack.length<2) return '';
 		this.formula.stack.push(this.formula.formula);
 		let value=this.formula.calculate().toString();
 		this.resetOperand();

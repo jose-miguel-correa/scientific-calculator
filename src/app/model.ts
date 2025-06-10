@@ -94,7 +94,7 @@ export class Formula {
         // If operator already set - nothing doing
         if (this.is_operand) {
             this.operation = operand;
-            return null;
+            return;
         }
         this.is_operand = true;
         this.stack.push(this.formula);
@@ -103,12 +103,18 @@ export class Formula {
     }
 
     calculate():number {
-        let result:number;
-        if (this.stack.length<3) return;
+        let result:number = 0;
+        if (this.stack.length<3) return 0;
         this.is_operand = false;
-        this.current_number=this.parse(this.stack.pop());
-        this.operation=this.stack.pop();
-        this.prev_number=this.parse(this.stack.pop());
+        const current = this.stack.pop();
+        if (current === undefined) return 0;
+        this.current_number=this.parse(current);
+        const operation = this.stack.pop();
+        if (operation === undefined) return 0;
+        this.operation=operation;
+        const prev = this.stack.pop();
+        if (prev === undefined) return 0;
+        this.prev_number=this.parse(prev);
         if (!this.prev_number) return 0;
 
         switch (this.operation) {
