@@ -25,6 +25,7 @@
 !.vscode/extensions.json
 
 # misc
+# porsi, cache, angular/cache, etc
 /.angular
 /.angular/cache
 /cache
